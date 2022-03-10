@@ -1,0 +1,60 @@
+# for root, subdi, files in os.walk(path):
+#         for sub in subdi:
+#             print(os.path.join(root, sub))
+#         for file in files:
+#             print(file)
+# for filename in os.listdir(path):
+#         f=os.path.join(path,filename)
+#         if os.path.isfile(f):
+#             # data=f.replace('www\\',"")
+#             print(filename)
+
+
+
+
+#  f=open(os.path.join(subDir,file),'rb')
+#                 length = f.read(1024)
+#                 while(length):
+#                     connection.send(bytes(length),'utf-8')
+#                     length= f.read(1024)
+#                     contentData = 'HTTP/1.1 200 OK'
+#                     contentData+= f'Content-Type: {mimetypes.guess_type(DirectoryPath[0])}'
+#                     contentData+=length
+#                     connection.send(bytes(contentData), 'utf-8')
+
+
+# code for files
+# import os
+# root="E:\\msit\\computer systems\\project1B"
+# # def isfiles(root):
+# #     filenames = os.listdir(root)
+# #     for file in filenames:
+# #         if  os.path.isfile(file):
+# #             print(file)
+# #         elif os.path.isdir(file):
+# #             lst = os.path.join(root,file)
+# #             isfiles(lst)
+# # print(isfiles(root))
+
+import os
+def getFiles(path):
+    
+    files = os.listdir(path)
+    for file in files:
+        newpath = path + "\\" + file
+        try:
+            if os.path.isdir(newpath):
+                print("This is dir ",file)
+                getFiles(newpath)   
+            else:
+                print("This is a file ", file)
+        except:
+            print("this file path is not valid")
+currentPath = os.getcwd()
+print("current path ******* ", currentPath)
+getFiles(currentPath)
+
+
+# def name(hello):
+#     print(f'I am shashidhar and i am {hello}')
+# print(name('good boy'))
